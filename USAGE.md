@@ -58,10 +58,3 @@ for row in g.query(q):
 **Contributor notes**
 - Keep SPARQL queries in `rdfquery.py` to make maintenance simpler.
 - Avoid changing JSON key names without updating both `grapher.py` and `script.js`.
-
-**Contact / Next steps**
-If you want, I can:
-- Commit these docs and create a GitHub repo and push the code.
-- Add a `requirements.txt` and simple unit tests for `grapher.py` helper functions.
-
-Tell me which you'd like me to do next.

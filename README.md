@@ -61,5 +61,3 @@ git remote add origin https://github.com/<username>/<repo>.git; git push -u orig
 **Notes & Tips**
 - Always run the app from repo root because `grapher.py` uses a relative path to `backend2/database/resume.ttl`.
 - If you edit SPARQL queries, test them quickly with a small RDFlib REPL snippet to ensure valid results.
-
-If you'd like, I can also commit these docs and push them to a remote for you — tell me whether to proceed and provide the remote URL or let me create a repository with the GitHub CLI.
