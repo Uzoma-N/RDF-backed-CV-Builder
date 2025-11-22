@@ -1,0 +1,4 @@
+# Runtime dependencies for CV Builder
+Flask
+rdflib
+gunicorn

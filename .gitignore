@@ -1,0 +1,11 @@
+# Virtual environments
+venv/
+.venv/
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+*.pyo
+# Editor / OS files
+.vscode/
+.idea/
+.DS_Store

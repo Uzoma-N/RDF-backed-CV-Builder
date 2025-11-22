@@ -1,0 +1,1357 @@
+@prefix : <URN://cv.resume/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@base <URN://cv.resume/> .
+
+<URN://cv.resume> rdf:type owl:Ontology ;
+                                                             owl:imports foaf: .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  URN://cv.resume/displayName
+:displayName rdf:type owl:AnnotationProperty ;
+             rdfs:label "displayName"@en .
+
+
+###  http://www.w3.org/2000/01/rdf-schema#comment
+rdfs:comment rdfs:range rdfs:Literal ;
+             rdfs:domain foaf:Project .
+
+
+###  http://xmlns.com/foaf/0.1/birthday
+foaf:birthday rdf:type owl:AnnotationProperty .
+
+
+###  http://xmlns.com/foaf/0.1/firstName
+foaf:firstName rdf:type owl:AnnotationProperty .
+
+
+###  http://xmlns.com/foaf/0.1/lastName
+foaf:lastName rdf:type owl:AnnotationProperty .
+
+
+###  http://xmlns.com/foaf/0.1/status
+foaf:status rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  URN://ontologies/resume#hasProject
+:hasProject rdf:type owl:ObjectProperty ;
+            rdfs:domain foaf:Person ;
+            rdfs:range foaf:Project ;
+            rdfs:label "has project"@en .
+
+
+###  URN://ontologies/resume#hasSocial
+:hasSocial rdf:type owl:ObjectProperty ;
+           rdfs:domain foaf:Person ;
+           rdfs:range :Socials ;
+           rdfs:label "has social"@en .
+
+
+###  URN://ontologies/resume#provideService
+:provideService rdf:type owl:ObjectProperty ;
+                rdfs:domain foaf:Person ;
+                rdfs:range :Service ;
+                rdfs:label "provides services"@en .
+
+
+###  URN://cv.resume/degreeLevel
+:degreeLevel rdf:type owl:ObjectProperty ;
+             rdfs:domain :Course ;
+             rdfs:range :Degree ;
+             rdfs:label "at degree level"@en .
+
+
+###  URN://cv.resume/doneAt
+:doneAt rdf:type owl:ObjectProperty ;
+        rdfs:domain :Education ,
+                    :WorkExperience ;
+        rdfs:range foaf:Organization ;
+        rdfs:label "done at"@en .
+
+
+###  URN://cv.resume/hasAchievement
+:hasAchievement rdf:type owl:ObjectProperty ;
+                rdfs:domain foaf:Person ;
+                rdfs:range :Certification ;
+                rdfs:label "has achieved a certificate"@en .
+
+
+###  URN://cv.resume/hasCategory
+:hasCategory rdf:type owl:ObjectProperty ;
+             rdfs:domain :Certification ,
+                         :Skills ,
+                         :WorkExperience ,
+                         foaf:Project ;
+             rdfs:range :Entry_type ;
+             rdfs:label "is categorized as"@en .
+
+
+###  URN://cv.resume/hasCourse
+:hasCourse rdf:type owl:ObjectProperty ;
+           rdfs:domain foaf:Organization ;
+           rdfs:range :Course ;
+           rdfs:label "provides course"@en .
+
+
+###  URN://cv.resume/hasDuty
+:hasDuty rdf:type owl:ObjectProperty ;
+         rdfs:domain :WorkExperience ,
+                     foaf:Project ;
+         rdfs:range :Duties ;
+         rdfs:label "has following duties"@en .
+
+
+###  URN://cv.resume/hasEducation
+:hasEducation rdf:type owl:ObjectProperty ;
+              rdfs:domain foaf:Person ;
+              rdfs:range :Education ;
+              rdfs:label "has education"@en .
+
+
+###  URN://cv.resume/hasExperience
+:hasExperience rdf:type owl:ObjectProperty ;
+               rdfs:domain foaf:Person ;
+               rdfs:range :WorkExperience ;
+               rdfs:label "has experience"@en .
+
+
+###  URN://cv.resume/hasSkill
+:hasSkill rdf:type owl:ObjectProperty ;
+          rdfs:domain foaf:Person ;
+          rdfs:range :Skills ;
+          rdfs:label "is skilled at"@en .
+
+
+###  URN://cv.resume/locatedIn
+:locatedIn rdf:type owl:ObjectProperty ;
+           rdfs:domain :City ,
+                       foaf:Organization ;
+           rdfs:range :City ,
+                      :Country ;
+           rdfs:label "located in"@en .
+
+
+###  http://xmlns.com/foaf/0.1/theme
+foaf:theme rdf:type owl:ObjectProperty ;
+           rdfs:domain foaf:Project ;
+           rdfs:range skos:Concept ;
+           rdfs:label "is classified as"@en .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://purl.org/dc/elements/1.1/description
+dc:description rdf:type owl:DatatypeProperty ;
+               rdfs:domain :Duties ;
+               rdfs:range rdfs:Literal .
+
+
+###  URN://cv.resume/endDate
+:endDate rdf:type owl:DatatypeProperty ;
+         rdfs:domain :Certification ,
+                     :Education ,
+                     :WorkExperience ;
+         rdfs:range xsd:dateTime ;
+         rdfs:label "endDate"@en .
+
+
+###  URN://cv.resume/hasAddress
+:hasAddress rdf:type owl:DatatypeProperty ;
+            rdfs:domain foaf:Agent ;
+            rdfs:range rdfs:Literal ;
+            rdfs:label "hasAddress"@en .
+
+
+###  URN://cv.resume/hasEmail
+:hasEmail rdf:type owl:DatatypeProperty ;
+          rdfs:domain foaf:Person ;
+          rdfs:range rdfs:Literal ;
+          rdfs:label "hasEmail"@en .
+
+
+###  URN://cv.resume/hasGrade
+:hasGrade rdf:type owl:DatatypeProperty ;
+          rdfs:domain :Degree ;
+          rdfs:range rdfs:Literal ;
+          rdfs:label "hasGrade"@en .
+
+
+###  URN://cv.resume/hasGradeValue
+:hasGradeValue rdf:type owl:DatatypeProperty ;
+               rdfs:domain :Degree ;
+               rdfs:range xsd:string .
+
+
+###  URN://cv.resume/hasLink
+:hasLink rdf:type owl:DatatypeProperty ;
+         rdfs:domain :Certification .
+
+
+###  URN://cv.resume/hasPercentage
+:hasPercentage rdf:type owl:DatatypeProperty ;
+               rdfs:domain :DigitalSkill ,
+                           :LanguageSkill ,
+                           :SoftSkill ;
+               rdfs:label "hasPercentage"@en .
+
+
+###  URN://cv.resume/hasPhone
+:hasPhone rdf:type owl:DatatypeProperty ;
+          rdfs:domain foaf:Person ;
+          rdfs:range rdfs:Literal ;
+          rdfs:label "hasPhone"@en .
+
+
+###  URN://cv.resume/startDate
+:startDate rdf:type owl:DatatypeProperty ;
+           rdfs:domain :Education ,
+                       :WorkExperience ;
+           rdfs:range xsd:dateTime ;
+           rdfs:label "startDate"@en .
+
+
+###  http://xmlns.com/foaf/0.1/title
+foaf:title rdf:type owl:DatatypeProperty ;
+           rdfs:domain :Certification ,
+                       :WorkExperience ,
+                       foaf:Project ;
+           rdfs:range rdfs:Literal .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  URN://ontologies/resume#Facebook
+:Facebook rdf:type owl:Class ;
+          rdfs:subClassOf :Socials .
+
+
+###  URN://ontologies/resume#Github
+:Github rdf:type owl:Class ;
+        rdfs:subClassOf :Socials .
+
+
+###  URN://ontologies/resume#Instagram
+:Instagram rdf:type owl:Class ;
+           rdfs:subClassOf :Socials .
+
+
+###  URN://ontologies/resume#LinkedIn
+:LinkedIn rdf:type owl:Class ;
+          rdfs:subClassOf :Socials .
+
+
+###  URN://ontologies/resume#Service
+:Service rdf:type owl:Class .
+
+
+###  URN://ontologies/resume#Snapchat
+:Snapchat rdf:type owl:Class ;
+          rdfs:subClassOf :Socials .
+
+
+###  URN://ontologies/resume#Socials
+:Socials rdf:type owl:Class .
+
+
+###  URN://ontologies/resume#Twitter
+:Twitter rdf:type owl:Class ;
+         rdfs:subClassOf :Socials .
+
+
+###  URN://cv.resume/Certification
+:Certification rdf:type owl:Class ;
+               rdfs:label "Certification"@en .
+
+
+###  URN://cv.resume/City
+:City rdf:type owl:Class ;
+      rdfs:label "City"@en .
+
+
+###  URN://cv.resume/Country
+:Country rdf:type owl:Class ;
+         rdfs:label "Country"@en .
+
+
+###  URN://cv.resume/Course
+:Course rdf:type owl:Class ;
+        rdfs:label "Course of Study"@en .
+
+
+###  URN://cv.resume/Degree
+:Degree rdf:type owl:Class .
+
+
+###  URN://cv.resume/DigitalSkill
+:DigitalSkill rdf:type owl:Class ;
+              rdfs:subClassOf :Skills ;
+              rdfs:label "Digital Skill"@en .
+
+
+###  URN://cv.resume/Duties
+:Duties rdf:type owl:Class ;
+        rdfs:label "Duties"@en .
+
+
+###  URN://cv.resume/Education
+:Education rdf:type owl:Class ;
+           rdfs:label "Education"@en .
+
+
+###  URN://cv.resume/Entry_type
+:Entry_type rdf:type owl:Class ;
+            rdfs:label "the type of instance"@en .
+
+
+###  URN://cv.resume/LanguageSkill
+:LanguageSkill rdf:type owl:Class ;
+               rdfs:subClassOf :Skills ;
+               rdfs:label "Language Skill"@en .
+
+
+###  URN://cv.resume/Skills
+:Skills rdf:type owl:Class ;
+        rdfs:label "Skills"@en .
+
+
+###  URN://cv.resume/SoftSkill
+:SoftSkill rdf:type owl:Class ;
+           rdfs:subClassOf :Skills ;
+           rdfs:label "Soft Skill"@en .
+
+
+###  URN://cv.resume/WorkExperience
+:WorkExperience rdf:type owl:Class ;
+                rdfs:label "Work Experience"@en .
+
+
+###  http://www.w3.org/2004/02/skos/core#Concept
+skos:Concept rdf:type owl:Class .
+
+
+###  http://xmlns.com/foaf/0.1/Agent
+foaf:Agent rdf:type owl:Class .
+
+
+###  http://xmlns.com/foaf/0.1/Organization
+foaf:Organization rdf:type owl:Class .
+
+
+###  http://xmlns.com/foaf/0.1/Person
+foaf:Person rdf:type owl:Class .
+
+
+###  http://xmlns.com/foaf/0.1/Project
+foaf:Project rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  URN://ontologies/resume#FACE001
+:FACE001 rdf:type owl:NamedIndividual ,
+                  :Facebook ;
+         :hasLink "facebook_link" .
+
+
+###  URN://ontologies/resume#GIT001
+:GIT001 rdf:type owl:NamedIndividual ,
+                 :Github ;
+        :hasLink "github_link" .
+
+
+###  URN://ontologies/resume#INST001
+:INST001 rdf:type owl:NamedIndividual ,
+                  :Instagram ;
+         :hasLink "instagram_link" .
+
+
+###  URN://ontologies/resume#LINK001
+:LINK001 rdf:type owl:NamedIndividual ,
+                  :LinkedIn ;
+         :hasLink "linkedin_link" .
+
+
+###  URN://ontologies/resume#SE001
+:SE001 rdf:type owl:NamedIndividual ,
+                :Service ;
+       dc:description "Service_1."@en ;
+       foaf:title "Service_title_1"@en ;
+       foaf:status "/assets/icon_analyst.png" .
+
+
+###  URN://ontologies/resume#SE002
+:SE002 rdf:type owl:NamedIndividual ,
+                :Service ;
+       dc:description "Service_2"@en ;
+       foaf:title "Service_title_2"@en ;
+       foaf:status "/assets/icon_linked_data.png" .
+
+
+###  URN://ontologies/resume#SE003
+:SE003 rdf:type owl:NamedIndividual ,
+                :Service ;
+       dc:description "Service_3"@en ;
+       foaf:title "Service_title_3"@en ;
+       foaf:status "/assets/icon_knowledge-graph.png" .
+
+
+###  URN://ontologies/resume#SE004
+:SE004 rdf:type owl:NamedIndividual ,
+                :Service ;
+       dc:description "Service_4"@en ;
+       foaf:title "Service_title_4"@en ;
+       foaf:status "/assets/icon_cost.png" .
+
+
+###  URN://ontologies/resume#SE005
+:SE005 rdf:type owl:NamedIndividual ,
+                :Service ;
+       dc:description "Service_5"@en ;
+       foaf:title "Service_title_5"@en ;
+       foaf:status "/assets/icon_architect.png" .
+
+
+###  URN://ontologies/resume#SE006
+:SE006 rdf:type owl:NamedIndividual ,
+                :Service ;
+       dc:description "Service_6"@en ;
+       foaf:title "Service_title_6"@en ;
+       foaf:status "/assets/icon_developer.png" .
+
+
+###  URN://ontologies/resume#SNAP001
+:SNAP001 rdf:type owl:NamedIndividual ,
+                  :Snapchat .
+
+
+###  URN://ontologies/resume#TWIT001
+:TWIT001 rdf:type owl:NamedIndividual ,
+                  :Twitter .
+
+
+###  URN://cv.resume/CE001
+:CE001 rdf:type owl:NamedIndividual ,
+                :Certification ;
+       :hasCategory :Database ,
+                    :Software ;
+       :endDate "1900-01-01T00:00:00"^^xsd:dateTime ;
+       :hasLink "Cert_Link_1"^^xsd:anyURI ;
+       foaf:title "Google IT Support Specialization"@en .
+
+
+###  URN://cv.resume/CE002
+:CE002 rdf:type owl:NamedIndividual ,
+                :Certification ;
+       :hasCategory :Database ,
+                    :Software ;
+       :endDate "1901-01-01T00:00:00"^^xsd:dateTime ;
+       :hasLink "Cert_Link_2"^^xsd:anyURI ;
+       foaf:title "Neural Network and Deep Learning"@en .
+
+
+###  URN://cv.resume/CE003
+:CE003 rdf:type owl:NamedIndividual ,
+                :Certification ;
+       :hasCategory :Database ,
+                    :Software ;
+       :endDate "1902-01-01T00:00:00"^^xsd:dateTime ;
+       :hasLink "Cert_Link_3"^^xsd:anyURI ;
+       foaf:title "Applied Data Science Lab"@en .
+
+
+###  URN://cv.resume/CE004
+:CE004 rdf:type owl:NamedIndividual ,
+                :Certification ;
+       :hasCategory :Database ,
+                    :Industrial ;
+       :endDate "1903-01-01T00:00:00"^^xsd:dateTime ;
+       :hasLink "Cert_Link_4"^^xsd:anyURI ;
+       foaf:title "Understanding the Enterprise Systems Environment"@en .
+
+
+###  URN://cv.resume/CO001
+:CO001 rdf:type owl:NamedIndividual ,
+                :Course ;
+       :degreeLevel :DE001 ;
+       foaf:title "Course_1"@en ;
+       rdfs:comment "EEE"^^rdfs:Literal ;
+       rdfs:label "First course studied"@en .
+
+
+###  URN://cv.resume/CO002
+:CO002 rdf:type owl:NamedIndividual ,
+                :Course ;
+       :degreeLevel :DE002 ;
+       foaf:title "Course_2"@en ;
+       rdfs:label "Second course studied"@en .
+
+
+###  URN://cv.resume/CO003
+:CO003 rdf:type owl:NamedIndividual ,
+                :Course ;
+       :degreeLevel :DE003 ;
+       foaf:title "Course_3"@en ;
+       rdfs:label "Third course studied"@en .
+
+
+###  URN://cv.resume/CO004
+:CO004 rdf:type owl:NamedIndividual ,
+                :Course .
+
+
+###  URN://cv.resume/CO005
+:CO005 rdf:type owl:NamedIndividual ,
+                :Course .
+
+
+###  URN://cv.resume/ControlSystem
+:ControlSystem rdf:type owl:NamedIndividual ,
+                        skos:Concept ;
+               rdfs:label "Control System"@en .
+
+
+###  URN://cv.resume/DE001
+:DE001 rdf:type owl:NamedIndividual ,
+                :Degree ;
+       :hasGrade "Grade_1"@en ;
+       :hasGradeValue "3.8/5.0" ;
+       foaf:title "Full_Degree_1"@en ;
+       rdfs:label "First degree" ;
+       foaf:status "Degree_1"@en .
+
+
+###  URN://cv.resume/DE002
+:DE002 rdf:type owl:NamedIndividual ,
+                :Degree ;
+       :hasGrade "Grade_2"@en ;
+       :hasGradeValue "3.8/5.0" ;
+       foaf:title "Full_Degree_2"@en ;
+       rdfs:label "First degree" ;
+       foaf:status "Degree_2"@en .
+
+
+###  URN://cv.resume/DE003
+:DE003 rdf:type owl:NamedIndividual ,
+                :Degree ;
+       :hasGrade "Grade_3"@en ;
+       :hasGradeValue "3.8/5.0" ;
+       foaf:title "Full_Degree_3"@en ;
+       rdfs:label "First degree" ;
+       foaf:status "Degree_3"@en .
+
+
+###  URN://cv.resume/DE004
+:DE004 rdf:type owl:NamedIndividual ,
+                :Degree .
+
+
+###  URN://cv.resume/DE005
+:DE005 rdf:type owl:NamedIndividual ,
+                :Degree .
+
+
+###  URN://cv.resume/DISK001
+:DISK001 rdf:type owl:NamedIndividual ,
+                  :DigitalSkill ;
+         :hasCategory :Database ,
+                      :Research ,
+                      :Software ;
+         dc:description "Machine Learning / Minitab / SQL / Power BI / SPARQL"^^rdfs:Literal ;
+         :hasPercentage 90 ;
+         foaf:title "Data Analysis"@en ;
+         foaf:status "90%" .
+
+
+###  URN://cv.resume/DISK002
+:DISK002 rdf:type owl:NamedIndividual ,
+                  :DigitalSkill ;
+         :hasCategory :Database ,
+                      :Research ,
+                      :Software ;
+         dc:description "Git / Semantic Web / Ontology Modelling / Agile Management / Figma / Object Oriented Programming / Python, C#, Java, Visual Basic / Clean Code / Knowledge Graph Design / Visual Studio, Visual Studio Code, PyCharm, Eclipse / MATLAB / IoT / Arduino"^^rdfs:Literal ;
+         :hasPercentage 85 ;
+         foaf:title "Software Development and Methodology"@en ;
+         foaf:status "85%" .
+
+
+###  URN://cv.resume/DISK003
+:DISK003 rdf:type owl:NamedIndividual ,
+                  :DigitalSkill ;
+         :hasCategory :Database ,
+                      :Software ;
+         dc:description "HTML / CSS / Javascript / jQuery"^^rdfs:Literal ;
+         :hasPercentage 65 ;
+         foaf:title "Web Design"@en ;
+         foaf:status "65%" .
+
+
+###  URN://cv.resume/DISK004
+:DISK004 rdf:type owl:NamedIndividual ,
+                  :DigitalSkill ;
+         :hasCategory :Industrial ,
+                      :Research ;
+         dc:description "Ansys / SolidWorks / AutoCAD 2D - 3D / nTopology"^^rdfs:Literal ;
+         :hasPercentage 55 ;
+         foaf:title "Computer Aided Design"@en ;
+         foaf:status "55%" .
+
+
+###  URN://cv.resume/DISK005
+:DISK005 rdf:type owl:NamedIndividual ,
+                  :DigitalSkill .
+
+
+###  URN://cv.resume/DU001
+:DU001 rdf:type owl:NamedIndividual ,
+                :Duties ;
+       dc:description "Duty_1."^^rdfs:Literal ;
+       foaf:title "Duty-1"@en .
+
+
+###  URN://cv.resume/DU002
+:DU002 rdf:type owl:NamedIndividual ,
+                :Duties ;
+       dc:description "Duty_2."^^rdfs:Literal ;
+       foaf:title "Duty-2"@en .
+
+###  URN://cv.resume/DU003
+:DU003 rdf:type owl:NamedIndividual ,
+                :Duties ;
+       dc:description "Duty_3."^^rdfs:Literal ;
+       foaf:title "Duty-3"@en .
+
+###  URN://cv.resume/DU004
+:DU004 rdf:type owl:NamedIndividual ,
+                :Duties ;
+       dc:description "Duty_4."^^rdfs:Literal ;
+       foaf:title "Duty-4"@en .
+
+###  URN://cv.resume/DU005
+:DU005 rdf:type owl:NamedIndividual ,
+                :Duties ;
+       dc:description "Duty_5."^^rdfs:Literal ;
+       foaf:title "Duty-5"@en .
+
+###  URN://cv.resume/DU006
+:DU006 rdf:type owl:NamedIndividual ,
+                :Duties ;
+       dc:description "Duty_6."^^rdfs:Literal ;
+       foaf:title "Duty-6"@en .
+
+###  URN://cv.resume/DU007
+:DU007 rdf:type owl:NamedIndividual ,
+                :Duties ;
+       dc:description "Duty_7."^^rdfs:Literal ;
+       foaf:title "Duty-7"@en .
+
+###  URN://cv.resume/DU008
+:DU008 rdf:type owl:NamedIndividual ,
+                :Duties ;
+       dc:description "Duty_8."^^rdfs:Literal ;
+       foaf:title "Duty-8"@en .
+
+###  URN://cv.resume/DU009
+:DU009 rdf:type owl:NamedIndividual ,
+                :Duties ;
+       dc:description "Duty_9."^^rdfs:Literal ;
+       foaf:title "Duty-9"@en .
+
+###  URN://cv.resume/DU010
+:DU010 rdf:type owl:NamedIndividual ,
+                :Duties ;
+       dc:description "Duty_10."^^rdfs:Literal ;
+       foaf:title "Duty-10"@en .
+
+###  URN://cv.resume/DU011
+:DU011 rdf:type owl:NamedIndividual ,
+                :Duties ;
+       dc:description "Duty_11."^^rdfs:Literal ;
+       foaf:title "Duty-11"@en .
+
+###  URN://cv.resume/DU012
+:DU012 rdf:type owl:NamedIndividual ,
+                :Duties ;
+       dc:description "Duty_12."^^rdfs:Literal ;
+       foaf:title "Duty-12"@en .
+
+###  URN://cv.resume/DU013
+:DU013 rdf:type owl:NamedIndividual ,
+                :Duties ;
+       dc:description "Duty_13."^^rdfs:Literal ;
+       foaf:title "Duty-13"@en .
+
+###  URN://cv.resume/DU014
+:DU014 rdf:type owl:NamedIndividual ,
+                :Duties ;
+       dc:description "Duty_14."^^rdfs:Literal ;
+       foaf:title "Duty-14"@en .
+
+###  URN://cv.resume/DU015
+:DU015 rdf:type owl:NamedIndividual ,
+                :Duties ;
+       dc:description "Duty_15."^^rdfs:Literal ;
+       foaf:title "Duty-15"@en .
+
+###  URN://cv.resume/DU016
+:DU016 rdf:type owl:NamedIndividual ,
+                :Duties ;
+       dc:description "Duty_16."^^rdfs:Literal ;
+       foaf:title "Duty-16"@en .
+
+###  URN://cv.resume/DU017
+:DU017 rdf:type owl:NamedIndividual ,
+                :Duties ;
+       dc:description "Duty_17."^^rdfs:Literal ;
+       foaf:title "Duty-17"@en .
+
+###  URN://cv.resume/DU018
+:DU018 rdf:type owl:NamedIndividual ,
+                :Duties ;
+       dc:description "Duty_18."^^rdfs:Literal ;
+       foaf:title "Duty-18"@en .
+
+###  URN://cv.resume/DU019
+:DU019 rdf:type owl:NamedIndividual ,
+                :Duties ;
+      dc:description "Duty_19."^^rdfs:Literal ;
+       foaf:title "Duty-19"@en .
+
+###  URN://cv.resume/DU020
+:DU020 rdf:type owl:NamedIndividual ,
+                :Duties ;
+       dc:description "Duty_20."^^rdfs:Literal ;
+       foaf:title "Duty-20"@en .
+
+###  URN://cv.resume/DU021
+:DU021 rdf:type owl:NamedIndividual ,
+                :Duties ;
+       dc:description "Duty_21."^^rdfs:Literal ;
+       foaf:title "Duty-21"@en .
+
+###  URN://cv.resume/DU022
+:DU022 rdf:type owl:NamedIndividual ,
+                :Duties ;
+       dc:description "Duty_22."^^rdfs:Literal ;
+       foaf:title "Duty-22"@en .
+
+###  URN://cv.resume/DU023
+:DU023 rdf:type owl:NamedIndividual ,
+                :Duties ;
+       dc:description "Duty_23."^^rdfs:Literal ;
+       foaf:title "Duty-23"@en .
+
+###  URN://cv.resume/DU024
+:DU024 rdf:type owl:NamedIndividual ,
+                :Duties ;
+       dc:description "Duty_24."^^rdfs:Literal ;
+       foaf:title "Duty-24"@en .
+
+###  URN://cv.resume/DataAnalysis
+:DataAnalysis rdf:type owl:NamedIndividual ,
+                       skos:Concept ;
+              rdfs:label "Data Analysis"@en .
+
+
+###  URN://cv.resume/Database
+:Database rdf:type owl:NamedIndividual ,
+                   :Entry_type .
+
+
+###  URN://cv.resume/ED001
+:ED001 rdf:type owl:NamedIndividual ,
+                :Education ;
+       :doneAt :Sch001 ;
+       :hasCourse :CO001 ;
+       :endDate "1901-01-01T00:00:00"^^xsd:dateTime ;
+       :startDate "1900-01-01T00:00:00"^^xsd:dateTime ;
+       rdfs:label "First education detail"@en .
+
+
+###  URN://cv.resume/ED002
+:ED002 rdf:type owl:NamedIndividual ,
+                :Education ;
+       :doneAt :Sch002 ;
+       :hasCourse :CO002 ;
+       :endDate "1903-01-01T00:00:00"^^xsd:dateTime ;
+       :startDate "1902-01-01T00:00:00"^^xsd:dateTime ;
+       rdfs:label "Second education detail"@en .
+
+
+###  URN://cv.resume/ED003
+:ED003 rdf:type owl:NamedIndividual ,
+                :Education ;
+       :doneAt :Sch003 ;
+       :hasCourse :CO003 ;
+       :endDate "1906-01-01T00:00:00"^^xsd:dateTime ;
+       :startDate "1905-01-01T00:00:00"^^xsd:dateTime ;
+       rdfs:label "Third education detail"@en .
+
+
+###  URN://cv.resume/ED004
+:ED004 rdf:type owl:NamedIndividual ,
+                :Education .
+
+
+###  URN://cv.resume/ED005
+:ED005 rdf:type owl:NamedIndividual ,
+                :Education .
+
+
+###  URN://cv.resume/City_4
+:City_4 rdf:type owl:NamedIndividual ,
+                  :City ;
+         :locatedIn :Land_1 ;
+         rdfs:label "City_4"@en .
+
+
+###  URN://cv.resume/Land_1
+:Land_1 rdf:type owl:NamedIndividual ,
+                  :Country .
+
+
+###  URN://cv.resume/City_3
+:City_3 rdf:type owl:NamedIndividual ,
+                   :City ;
+          :locatedIn :Land_1 ;
+          rdfs:label "City_3"@en .
+
+
+###  URN://cv.resume/City_2
+:City_2 rdf:type owl:NamedIndividual ,
+                 :City ;
+        :locatedIn :Land_3 ;
+        rdfs:label "City_2"@en .
+
+
+###  URN://cv.resume/Ind001
+:Ind001 rdf:type owl:NamedIndividual ,
+                 foaf:Organization ;
+        :locatedIn :City_2 ;
+        foaf:title "Industry_1"@en ;
+        rdfs:label "First industry worked in"@en .
+
+
+###  URN://cv.resume/Ind002
+:Ind002 rdf:type owl:NamedIndividual ,
+                 foaf:Organization ;
+        :locatedIn :City_4 ;
+        foaf:title "Industry_2"@en ;
+        rdfs:label "Second industry worked in"@en .
+
+
+###  URN://cv.resume/Ind003
+:Ind003 rdf:type owl:NamedIndividual ,
+                 foaf:Organization ;
+        :locatedIn :City_3 ;
+        foaf:title "Industry_3"@en ;
+        rdfs:label "Third industry worked in"@en .
+
+
+###  URN://cv.resume/Ind004
+:Ind004 rdf:type owl:NamedIndividual ,
+                 foaf:Organization ;
+        :locatedIn :City_4 ;
+        foaf:title "Industry_4"@en ;
+        rdfs:label "Fourth place worked in"@en .
+
+
+###  URN://cv.resume/Ind005
+:Ind005 rdf:type owl:NamedIndividual ,
+                 foaf:Organization ;
+        :locatedIn :City_3 ;
+        foaf:title "Industry_5"@en ;
+        rdfs:label "Fifth place worked in"@en .
+
+
+###  URN://cv.resume/Ind006
+:Ind006 rdf:type owl:NamedIndividual ,
+                 foaf:Organization ;
+        :locatedIn :City_4 ;
+        foaf:title "Industry_6"@en ;
+        rdfs:label "Sixth place worked in"@en .
+
+
+###  URN://cv.resume/Ind007
+:Ind007 rdf:type owl:NamedIndividual ,
+                 foaf:Organization ;
+        :locatedIn :City_6 ;
+        foaf:title "Industry_7"@en ;
+        rdfs:label "Seventh place worked in" .
+
+
+###  URN://cv.resume/Ind008
+:Ind008 rdf:type owl:NamedIndividual ,
+                 foaf:Organization .
+
+
+###  URN://cv.resume/Ind009
+:Ind009 rdf:type owl:NamedIndividual ,
+                 foaf:Organization .
+
+
+###  URN://cv.resume/Industrial
+:Industrial rdf:type owl:NamedIndividual ,
+                     :Entry_type ;
+            foaf:title "Developed and implemented PLC programs to ensure efficient and reliable control systems for industrial automation processes through effective programming using Siemens Step7."@en .
+
+
+###  URN://cv.resume/LASK001
+:LASK001 rdf:type owl:NamedIndividual ,
+                  :LanguageSkill ;
+         dc:description "Listening / Reading / Writing / Spoken Production / Spoken Interation"^^rdfs:Literal ;
+         :hasPercentage 100 ;
+         foaf:title "English Language"@en ;
+         foaf:status "100%" .
+
+
+###  URN://cv.resume/LASK003
+:LASK003 rdf:type owl:NamedIndividual ,
+                  :LanguageSkill ;
+         dc:description "Listening / Reading / Writing / Spoken Production / Spoken Interation"^^rdfs:Literal ;
+         :hasPercentage "65" ;
+         foaf:title "German Language"@en ;
+         foaf:status "65%" .
+
+
+###  URN://cv.resume/LASK004
+:LASK004 rdf:type owl:NamedIndividual ,
+                  :LanguageSkill .
+
+
+###  URN://cv.resume/LASK005
+:LASK005 rdf:type owl:NamedIndividual ,
+                  :LanguageSkill .
+
+
+###  URN://cv.resume/City_6
+:City_6 rdf:type owl:NamedIndividual ,
+                    :City ;
+           :locatedIn :Land_1 ;
+           rdfs:label "City_6"@en .
+
+
+###  URN://cv.resume/MachineLearning
+:MachineLearning rdf:type owl:NamedIndividual ,
+                          skos:Concept ;
+                 rdfs:label "Machine Learning"@en .
+
+
+###  URN://cv.resume/Land_3
+:Land_3 rdf:type owl:NamedIndividual ,
+                  :Country .
+
+
+###  URN://cv.resume/LnameFname
+:LnameFname rdf:type owl:NamedIndividual ,
+                     foaf:Person ;
+            :hasProject :PR001 ,
+                        :PR002 ,
+                        :PR003 ,
+                        :PR004 ,
+                        :PR005 ,
+                        :PR006 ,
+                        :PR007 ,
+                        :PR008 ,
+                        :PR009 ,
+                        :PR010 ;
+            :hasSocial :FACE001 ,
+                       :GIT001 ,
+                       :INST001 ,
+                       :LINK001 ;
+            :provideService :SE001 ,
+                            :SE002 ,
+                            :SE003 ,
+                            :SE004 ,
+                            :SE005 ,
+                            :SE006 ;
+            :hasAchievement :CE001 ,
+                            :CE002 ,
+                            :CE003 ,
+                            :CE004 ;                            
+            :hasEducation :ED001 ,
+                          :ED002 ,
+                          :ED003 ;
+            :hasExperience :WOEX001 ,
+                           :WOEX002 ,
+                           :WOEX003 ,
+                           :WOEX004 ,
+                           :WOEX005 ,
+                           :WOEX006 ,
+                           :WOEX007 ;
+            :hasSkill :DISK001 ,
+                      :DISK002 ,
+                      :DISK003 ,
+                      :DISK004 ,
+                      :LASK001 ,
+                      
+                      :LASK003 ,
+                      :SOSK001 ,
+                      :SOSK002 ;
+            dc:description "Something about me"@en ;
+            :hasAddress "My Address"@en ;
+            :hasEmail "resume@cv.com" ;
+            :hasPhone "0-0-0-0-0-1" ;
+            foaf:title "Job Title" ;
+            rdfs:label "Lname Fname" ;
+            foaf:birthday "1901-01-01T00:00:00"^^xsd:dateTime ;
+            foaf:firstName "Fname" ;
+            foaf:lastName "Lname" ;
+            foaf:status "assets/avatar-1.png" .
+
+
+###  URN://cv.resume/City_1
+:City_1 rdf:type owl:NamedIndividual ,
+                 :City ;
+        :locatedIn :Land_3 ;
+        rdfs:label "City_1"@en .
+
+
+###  URN://cv.resume/PR001
+:PR001 rdf:type owl:NamedIndividual ,
+                foaf:Project ;
+       :hasCategory :Database ,
+                    :Software ;
+       foaf:theme :DataAnalysis ;
+       dc:description "Regression modeling, feature engineering, pricing strategy"^^rdfs:Literal ;
+       foaf:title "Optimized Price Predictor for Used Bicycle"@en ;
+       foaf:status "Regression modeling, feature engineering, pricing strategy"@en .
+
+
+###  URN://cv.resume/PR002
+:PR002 rdf:type owl:NamedIndividual ,
+                foaf:Project ;
+       :hasCategory :Database ,
+                    :Software ;
+       foaf:theme :DataAnalysis ;
+       dc:description "Time-series analysis, sensor data, health metrics"^^rdfs:Literal ;
+       foaf:title "Smartwatch Data Analysis"@en ;
+       foaf:status "Time-series analysis, sensor data, health metrics"@en .
+
+
+###  URN://cv.resume/PR003
+:PR003 rdf:type owl:NamedIndividual ,
+                foaf:Project ;
+       :hasCategory :Database ,
+                    :Software ;
+       foaf:theme :MachineLearning ;
+       dc:description "NLP, text classification, sequence labeling"^^rdfs:Literal ;
+       foaf:title "Named Entity Recognition"@en ;
+       foaf:status "NLP, text classification, sequence labeling"@en .
+
+
+###  URN://cv.resume/PR004
+:PR004 rdf:type owl:NamedIndividual ,
+                foaf:Project ;
+       :hasCategory :Industrial ,
+                    :Research ;
+       foaf:theme :ScientificResearch ;
+       dc:description "Materials science, mechanical simulation, additive manufacturing"^^rdfs:Literal ;
+       foaf:title "Impact of Negative Poisson's Ratio on 3D Printed TPU Lattice Structures"@en ;
+       foaf:status "Materials science, mechanical simulation, additive manufacturing"@en .
+
+
+###  URN://cv.resume/PR005
+:PR005 rdf:type owl:NamedIndividual ,
+                foaf:Project ;
+       :hasCategory :Database ,
+                    :Software ;
+       foaf:theme :DataAnalysis ;
+       dc:description "Financial forecasting, machine learning, volatility modeling"^^rdfs:Literal ;
+       foaf:title "Stock Price Prediction"@en ;
+       foaf:status "Financial forecasting, machine learning, volatility modeling"@en .
+
+
+###  URN://cv.resume/PR006
+:PR006 rdf:type owl:NamedIndividual ,
+                foaf:Project ;
+       :hasCategory :Industrial ,
+                    :Research ;
+       foaf:theme :ControlSystem ;
+       dc:description "Model-based control, system identification, performance evaluation"^^rdfs:Literal ;
+       foaf:title "Control Optimal Model Selection for Dynamic Systems"@en ;
+       foaf:status "Model-based control, system identification, performance evaluation"@en .
+
+
+###  URN://cv.resume/PR007
+:PR007 rdf:type owl:NamedIndividual ,
+                foaf:Project ;
+       :hasCategory :Database ,
+                    :Software ;
+       foaf:theme :MachineLearning ;
+       dc:description "Computer vision, image classification, deep learning"^^rdfs:Literal ;
+       foaf:title "CNN for Face Mask Detection"@en ;
+       foaf:status "Computer vision, image classification, deep learning"@en .
+
+
+###  URN://cv.resume/PR008
+:PR008 rdf:type owl:NamedIndividual ,
+                foaf:Project ;
+       :hasCategory :Industrial ,
+                    :Research ;
+       foaf:theme :ControlSystem ;
+       dc:description "Industrial automation, rule-based systems, compliance tracking"^^rdfs:Literal ;
+       foaf:title "Factory Maintenance Intelligent Systems for Requirements and Compliance Control"@en ;
+       foaf:status "Industrial automation, rule-based systems, compliance tracking"@en .
+
+
+###  URN://cv.resume/PR009
+:PR009 rdf:type owl:NamedIndividual ,
+                foaf:Project ;
+       :hasCategory :Database ,
+                    :Software ;
+       foaf:theme :DataAnalysis ;
+       dc:description "Condition monitoring, statistical diagnostics, reliability analysis"^^rdfs:Literal ;
+       foaf:title "Analysis of Transformer Oil Data"@en ;
+       foaf:status "Condition monitoring, statistical diagnostics, reliability analysis"@en .
+
+
+###  URN://cv.resume/PR010
+:PR010 rdf:type owl:NamedIndividual ,
+                foaf:Project ;
+       :hasCategory :Research ;
+       foaf:theme :ScientificResearch ;
+       dc:description "Electrical modeling, waveform analysis, power electronics"^^rdfs:Literal ;
+       foaf:title "Analysis of Parasitic Capacitances in Transformers"@en ;
+       foaf:status "Electrical modeling, waveform analysis, power electronics"@en .
+
+
+###  URN://cv.resume/Research
+:Research rdf:type owl:NamedIndividual ,
+                   :Entry_type .
+
+
+###  URN://cv.resume/Land_2
+:Land_2 rdf:type owl:NamedIndividual ,
+                 :Country .
+
+
+###  URN://cv.resume/SOSK001
+:SOSK001 rdf:type owl:NamedIndividual ,
+                  :SoftSkill ;
+         dc:description "Collaboration / Adaptability / Critical Thinking / Problem Solving / Presentation"^^rdfs:Literal ;
+         :hasPercentage 90 ;
+         foaf:title "Soft Skill"@en ;
+         foaf:status "90%" .
+
+
+###  URN://cv.resume/SOSK002
+:SOSK002 rdf:type owl:NamedIndividual ,
+                  :SoftSkill ;
+         dc:description "User-Centered / Cross-Functional Collaboration / Technical prototyping & Iteration / Data-Driven Decision Making / Project and Lifecycle Management / Microsoft Tools"^^rdfs:Literal ;
+         :hasPercentage 80 ;
+         foaf:title "Product Development" ;
+         foaf:status "80%" .
+
+
+###  URN://cv.resume/SOSK003
+:SOSK003 rdf:type owl:NamedIndividual ,
+                  :SoftSkill .
+
+
+###  URN://cv.resume/SOSK004
+:SOSK004 rdf:type owl:NamedIndividual ,
+                  :SoftSkill .
+
+
+###  URN://cv.resume/SOSK005
+:SOSK005 rdf:type owl:NamedIndividual ,
+                  :SoftSkill .
+
+
+###  URN://cv.resume/Sch001
+:Sch001 rdf:type owl:NamedIndividual ,
+                 foaf:Organization ;
+        :locatedIn :City_1 ;
+        foaf:title "School_1"@en ;
+        rdfs:label "First university attended"@en .
+
+
+###  URN://cv.resume/Sch002
+:Sch002 rdf:type owl:NamedIndividual ,
+                 foaf:Organization ;
+        :locatedIn :City_5 ;
+        foaf:title "School_2"@en ;
+        rdfs:label "Second university attended"@en .
+
+
+###  URN://cv.resume/Sch003
+:Sch003 rdf:type owl:NamedIndividual ,
+                 foaf:Organization ;
+        :locatedIn :City_3 ;
+        foaf:title "School_3" ;
+        rdfs:label "Third university attended"@en .
+
+
+###  URN://cv.resume/Sch004
+:Sch004 rdf:type owl:NamedIndividual ,
+                 foaf:Organization .
+
+
+###  URN://cv.resume/Sch005
+:Sch005 rdf:type owl:NamedIndividual ,
+                 foaf:Organization .
+
+
+###  URN://cv.resume/ScientificResearch
+:ScientificResearch rdf:type owl:NamedIndividual ,
+                             skos:Concept ;
+                    rdfs:label "Scientific Research"@en .
+
+
+###  URN://cv.resume/Software
+:Software rdf:type owl:NamedIndividual ,
+                   :Entry_type .
+
+
+###  URN://cv.resume/City_5
+:City_5 rdf:type owl:NamedIndividual ,
+                       :City ;
+              :locatedIn :Land_2 ;
+              rdfs:label "City_5"@en .
+
+
+###  URN://cv.resume/WOEX001
+:WOEX001 rdf:type owl:NamedIndividual ,
+                  :WorkExperience ;
+         :doneAt :Ind001 ;
+         :hasCategory :Industrial ,
+                      :Research ;
+         :hasDuty :DU001 ,
+                  :DU002 ,
+                  :DU003 ;
+         :endDate "1901-01-01T00:00:00"^^xsd:dateTime ;
+         :startDate "1900-01-01T00:00:00"^^xsd:dateTime ;
+         foaf:title "Job_title_1"@en ;
+         rdfs:label "first work experience"@en .
+
+
+###  URN://cv.resume/WOEX002
+:WOEX002 rdf:type owl:NamedIndividual ,
+                  :WorkExperience ;
+         :doneAt :Ind002 ;
+         :hasCategory :Industrial ,
+                      :Research ;
+         :hasDuty :DU004 ,
+                  :DU005 ,
+                  :DU006 ,
+                  :DU007 ;
+         :endDate "1903-01-01T00:00:00"^^xsd:dateTime ;
+         :startDate "1902-01-01T00:00:00"^^xsd:dateTime ;
+         foaf:title "Job_title_2"@en ;
+         rdfs:label "Second work experience"@en .
+
+
+###  URN://cv.resume/WOEX003
+:WOEX003 rdf:type owl:NamedIndividual ,
+                  :WorkExperience ;
+         :doneAt :Ind003 ;
+         :hasCategory :Industrial ,
+                      :Research ,
+                      :Software ;
+         :hasDuty :DU008 ,
+                  :DU009 ,
+                  :DU010 ,
+                  :DU011 ;
+         :endDate "1905-01-01T00:00:00"^^xsd:dateTime ;
+         :startDate "1904-01-01T00:00:00"^^xsd:dateTime ;
+         foaf:title "Job_title_3"@en ;
+         rdfs:label "Third work experience"@en .
+
+
+###  URN://cv.resume/WOEX004
+:WOEX004 rdf:type owl:NamedIndividual ,
+                  :WorkExperience ;
+         :doneAt :Ind004 ;
+         :hasCategory :Database ,
+                      :Research ,
+                      :Software ;
+         :hasDuty :DU012 ,
+                  :DU013 ,
+                  :DU014 ,
+                  :DU015 ;
+         :endDate "1907-01-01T00:00:00"^^xsd:dateTime ;
+         :startDate "1906-01-01T00:00:00"^^xsd:dateTime ;
+         foaf:title "Job_title_4"@en ;
+         rdfs:label "Fourth work experience"@en .
+
+
+###  URN://cv.resume/WOEX005
+:WOEX005 rdf:type owl:NamedIndividual ,
+                  :WorkExperience ;
+         :doneAt :Ind005 ;
+         :hasCategory :Database ,
+                      :Research ,
+                      :Software ;
+         :hasDuty :DU016 ,
+                  :DU017 ,
+                  :DU018 ,
+                  :DU019 ;
+         :endDate "1909-01-01T00:00:00"^^xsd:dateTime ;
+         :startDate "1908-01-01T00:00:00"^^xsd:dateTime ;
+         foaf:title "Job_title_5"@en ;
+         rdfs:label "fifth work experience"@en .
+
+
+###  URN://cv.resume/WOEX006
+:WOEX006 rdf:type owl:NamedIndividual ,
+                  :WorkExperience ;
+         :doneAt :Ind006 ;
+         :hasDuty :DU020 ,
+                  :DU021 ;
+         :endDate "1911-01-01T00:00:00"^^xsd:dateTime ;
+         :startDate "1910-01-01T00:00:00"^^xsd:dateTime ;
+         foaf:title "Job_title_6"@en ;
+         rdfs:label "Sixth work experience"@en .
+
+
+###  URN://cv.resume/WOEX007
+:WOEX007 rdf:type owl:NamedIndividual ,
+                  :WorkExperience ;
+         :doneAt :Ind007 ;
+         :hasCategory :Database ,
+                      :Industrial ,
+                      :Research ,
+                      :Software ;
+         :hasDuty :DU022 ,
+                  :DU023 ,
+                  :DU024 ;
+         :startDate "1913-01-01T00:00:00"^^xsd:dateTime ;
+         foaf:title "Job_title_7"@en ;
+         rdfs:label "Seventh work experience"@en .
+
+
+###  URN://cv.resume/WOEX008
+:WOEX008 rdf:type owl:NamedIndividual ,
+                  :WorkExperience .
+
+
+###  URN://cv.resume/WOEX009
+:WOEX009 rdf:type owl:NamedIndividual ,
+                  :WorkExperience .
+
+
+###  URN://cv.resume/WOEX010
+:WOEX010 rdf:type owl:NamedIndividual ,
+                  :WorkExperience .
+
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
